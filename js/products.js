@@ -76,6 +76,10 @@ const PRODUCTS = [
   { id: 'r04', name: 'Set 3 Anillos Stack', cat: 'anillos', metal: 'acero', price: 55, stone: '#cfd4d9',
     sizes: ['6', '7', '8'], desc: 'Trío de anillos: liso, trenzado y con punto de luz.',
     details: ['Acero quirúrgico 316L', '3 piezas', 'Resistente al agua'], rating: 4.6 },
+  { id: 'r05', name: 'Anillo Trenzado Brillante', cat: 'anillos', metal: 'oro', price: 89, tag: 'Nuevo', stone: '#f3d98b', isNew: true,
+    img: 'assets/productos/anillo-trenzado-oro.jpg',
+    sizes: ['5', '6', '7', '8', '9'], desc: 'Dos bandas entrelazadas con circonitas en pavé que atrapan la luz desde todos los ángulos. Ideal para aniversarios o como anillo de promesa.',
+    details: ['Baño de oro 18k', 'Circonitas en pavé', 'Diseño trenzado', 'Hipoalergénico'], rating: 4.9 },
 
   { id: 'p01', name: 'Esclava Nudo de Amor', cat: 'pulseras', metal: 'oro', price: 72, stone: '#f3d98b',
     sizes: ['S', 'M', 'L'], desc: 'Esclava rígida con nudo central. Símbolo de unión, ideal para regalar a tu mejor amiga.',
