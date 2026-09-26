@@ -374,6 +374,17 @@
     toastTimer = setTimeout(() => t.classList.remove('is-show'), 2200);
   }
 
+  /* ---------- Asistente de voz (ElevenLabs) ---------- */
+  if (STORE.elevenlabsAgentId) {
+    const agent = document.createElement('elevenlabs-convai');
+    agent.setAttribute('agent-id', STORE.elevenlabsAgentId);
+    document.body.appendChild(agent);
+    const sc = document.createElement('script');
+    sc.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed';
+    sc.async = true;
+    document.body.appendChild(sc);
+  }
+
   /* ---------- Header con sombra al hacer scroll ---------- */
   const header = $('.header');
   window.addEventListener('scroll', () => header.classList.toggle('is-scrolled', scrollY > 10), { passive: true });

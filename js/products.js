@@ -8,7 +8,10 @@ const STORE = {
   currency: 'S/',          // Cambia el símbolo de moneda aquí
   whatsapp: '51993842348', // Número de WhatsApp (código de país + número, sin +)
   freeShippingFrom: 150,
-  shippingCost: 12
+  shippingCost: 12,
+  // ID del agente de voz de ElevenLabs (ElevenLabs → Agents → tu agente → Widget).
+  // Déjalo vacío ('') para ocultar el asistente.
+  elevenlabsAgentId: ''
 };
 
 const METALS = {
