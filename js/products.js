@@ -6,7 +6,7 @@
 const STORE = {
   name: 'SuperChicas',
   currency: 'S/',          // Cambia el símbolo de moneda aquí
-  whatsapp: '51999999999', // Número de WhatsApp (código de país + número, sin +)
+  whatsapp: '51993842348', // Número de WhatsApp (código de país + número, sin +)
   freeShippingFrom: 150,
   shippingCost: 12
 };
@@ -32,7 +32,8 @@ const CATEGORIES = [
 
 /*  Campos:
     id, name, cat, metal, price, oldPrice (opcional), tag (opcional: 'Nuevo', 'Top ventas', 'Oferta'),
-    stone (color de piedra/acento), sizes (opcional), desc, details (lista), isNew, rating */
+    stone (color de piedra/acento), sizes (opcional), desc, details (lista), isNew, rating,
+    img (opcional: ruta a la foto, p. ej. 'assets/productos/c01.jpg'; si falta se usa la ilustración) */
 const PRODUCTS = [
   { id: 'c01', name: 'Collar Corazón Eterno',  cat: 'collares', metal: 'oro', price: 89, oldPrice: 110, tag: 'Top ventas', stone: '#e8a0b4',
     sizes: ['40 cm', '45 cm', '50 cm'], desc: 'Dije de corazón con circonita rosada sobre cadena fina tipo rolo. Un clásico para regalar.',

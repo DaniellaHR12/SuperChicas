@@ -68,6 +68,10 @@
 
   /* ---------- Productos ---------- */
   const priceHTML = p => `<span class="price">${money(p.price)}</span>${p.oldPrice ? `<s class="old-price">${money(p.oldPrice)}</s>` : ''}`;
+  // Foto real si el producto tiene `img`; si no, la ilustración SVG
+  const productMedia = p => p.img
+    ? `<img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy" decoding="async">`
+    : jewelArt(artFor(p), p.metal, p.stone);
   const tagClass = t => ({ 'Nuevo': 'tag--new', 'Oferta': 'tag--sale', 'Top ventas': 'tag--top' }[t] || '');
 
   function filtered() {
@@ -103,7 +107,7 @@
           <button class="wish ${state.wish.includes(p.id) ? 'is-on' : ''}" data-wish="${p.id}" aria-label="Agregar ${esc(p.name)} a favoritos" aria-pressed="${state.wish.includes(p.id)}">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-9.3-9A5 5 0 0 1 12 6a5 5 0 0 1 9.3 5c-2.3 4.5-9.3 9-9.3 9z"/></svg>
           </button>
-          <button class="card__art" data-view="${p.id}" aria-label="Ver detalles de ${esc(p.name)}">${jewelArt(artFor(p), p.metal, p.stone)}</button>
+          <button class="card__art" data-view="${p.id}" aria-label="Ver detalles de ${esc(p.name)}">${productMedia(p)}</button>
           <button class="quick-add" data-add="${p.id}">${p.sizes && p.sizes.length > 1 ? 'Elegir talla' : 'Agregar a la bolsa'}</button>
         </div>
         <div class="card__info">
@@ -165,7 +169,7 @@
     const cat = CATEGORIES.find(c => c.id === p.cat);
     const sizeLabel = p.cat === 'anillos' ? 'Talla' : p.cat === 'collares' ? 'Largo' : p.cat === 'aretes' ? 'Tamaño' : 'Talla';
     $('#modalBody').innerHTML = `
-      <div class="pd__media" style="--stone:${p.stone}">${jewelArt(artFor(p), p.metal, p.stone)}</div>
+      <div class="pd__media" style="--stone:${p.stone}">${productMedia(p)}</div>
       <div class="pd__info">
         <p class="eyebrow">${cat.name}</p>
         <h2 id="modalTitle">${esc(p.name)}</h2>
@@ -239,7 +243,7 @@
     $('#drawerItems').innerHTML = state.cart.length ? state.cart.map(i => {
       const p = PRODUCTS.find(x => x.id === i.id);
       return `<div class="line" data-key="${esc(i.key)}">
-        <div class="line__art" style="--stone:${p.stone}">${jewelArt(artFor(p), p.metal, p.stone)}</div>
+        <div class="line__art" style="--stone:${p.stone}">${productMedia(p)}</div>
         <div class="line__info">
           <p class="line__name">${esc(p.name)}</p>
           <p class="line__meta">${METALS[p.metal].label}${i.size ? ` · ${esc(i.size)}` : ''}${i.gift ? ' · 🎁 Regalo' : ''}</p>
